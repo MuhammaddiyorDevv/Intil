@@ -53,12 +53,10 @@ const Sidebar: React.FC = () => {
           })}
         </ul>
 
-        {/* Separator */}
         <div className="my-5">
           <hr className="border-[#E5E5E5]" />
         </div>
 
-        {/* Bottom items */}
         <ul className="space-y-2">
           {bottomSidebarItems.map((item) => {
             const isActive = location.pathname === item.path;
