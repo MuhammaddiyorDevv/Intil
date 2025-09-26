@@ -10,7 +10,6 @@ const BlogsPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<BlogCategory>("all");
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Filter blogs based on active tab
   const filteredBlogs = useMemo(() => {
     let filtered = MOCK_BLOGS;
 
@@ -31,7 +30,6 @@ const BlogsPage: React.FC = () => {
     return filtered;
   }, [activeTab]);
 
-  // Calculate pagination
   const pagination: PaginationInfo = useMemo(() => {
     const totalItems = filteredBlogs.length;
     const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
@@ -64,12 +62,10 @@ const BlogsPage: React.FC = () => {
 
   return (
       <div className="bg-white min-h-screen p-4 sm:p-5 lg:px-8 rounded-[20px]">
-        {/* Header */}
         <div className="mb-6 sm:mb-8">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Блоги</h1>
         </div>
 
-      {/* Tabs */}
       <div className="flex flex-wrap mb-6 sm:mb-8 gap-2 sm:gap-3">
         {BLOG_CATEGORIES.map((category) => (
           <button
@@ -86,7 +82,6 @@ const BlogsPage: React.FC = () => {
         ))}
       </div>
 
-      {/* Blog Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8 items-stretch">
         {paginatedBlogs.map((blog) => (
           <div
@@ -104,7 +99,6 @@ const BlogsPage: React.FC = () => {
               </div>
             )}
             <div className="py-3 sm:py-4 flex flex-col flex-1">
-              {/* Date with calendar icon */}
               <div className="flex items-center gap-2 mb-2 sm:mb-3">
                 <img src={Calendar} alt="" className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span className="text-xs sm:text-sm text-gray-500">
@@ -112,17 +106,14 @@ const BlogsPage: React.FC = () => {
                 </span>
               </div>
 
-              {/* Title */}
               <h3 className="text-base sm:text-lg lg:text-[20px] font-bold text-gray-900 mb-2 sm:mb-3 line-clamp-2">
                 {blog.title}
               </h3>
 
-              {/* Description */}
               <p className="text-gray-600 mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3 text-[12px] sm:text-[12px] leading-relaxed flex-1">
                 {blog.excerpt}
               </p>
 
-              {/* Learn More Button */}
               <button 
                 onClick={(e) => {
                   e.stopPropagation();
@@ -137,7 +128,6 @@ const BlogsPage: React.FC = () => {
         ))}
       </div>
 
-      {/* Pagination */}
       {pagination.totalPages > 1 && (
         <div className="flex justify-center items-center space-x-1 sm:space-x-2">
           <button
