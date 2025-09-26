@@ -40,7 +40,9 @@ const Sidebar: React.FC = () => {
                         className="w-4 h-4 lg:w-5 lg:h-5 mr-2 lg:mr-3 flex-shrink-0"
                       />
                     )}
-                    <span className="truncate text-xs lg:text-sm">{item.label}</span>
+                    <span className="truncate text-xs lg:text-sm">
+                      {item.label}
+                    </span>
                   </div>
                   <FiChevronRight
                     className={`w-3 h-3 lg:w-4 lg:h-4 transition-colors flex-shrink-0 ${
@@ -80,7 +82,9 @@ const Sidebar: React.FC = () => {
                         className="w-4 h-4 lg:w-5 lg:h-5 mr-2 lg:mr-3 flex-shrink-0"
                       />
                     )}
-                    <span className="truncate text-xs lg:text-sm">{item.label}</span>
+                    <span className="truncate text-xs lg:text-sm">
+                      {item.label}
+                    </span>
                   </div>
                   <FiChevronRight
                     className={`w-3 h-3 lg:w-4 lg:h-4 transition-colors flex-shrink-0 ${
@@ -93,29 +97,36 @@ const Sidebar: React.FC = () => {
           })}
         </ul>
       </nav>
-       <div className="rounded-lg flex flex-col gap-4 lg:gap-5">
-         <div className="bg-[#F6F6F6] flex flex-col items-center text-center py-3 lg:py-4 px-2 lg:px-3 rounded-[12px] lg:rounded-[16px]">
-           <img className="w-12 h-10 lg:w-16 lg:h-14" src={Diamond} alt="" />
-           <h3 className="mt-2 text-xs lg:text-sm font-semibold">Получите Pro-версию</h3>
-           <p className="text-[10px] lg:text-[11px] text-[#616161] mt-1 leading-tight">
-             Обновитесь до Pro и получите доступ ко всем курсам, бонусам
-           </p>
-           <p className="text-[10px] lg:text-[11px] text-[#616161] mt-1">и сертификатам!</p>
-           <a
-             className="mt-2 lg:mt-3 bg-[#567D4A] text-white text-[10px] lg:text-xs px-4 lg:px-6 py-1.5 lg:py-2.5 rounded-full"
-             href=""
-           >
-             Перейти
-           </a>
-         </div>
+      <div className="rounded-lg flex flex-col gap-4 lg:gap-5">
+        <div className="bg-[#F6F6F6] flex flex-col items-center text-center py-3 lg:py-4 px-2 lg:px-3 rounded-[12px] lg:rounded-[16px]">
+          <img className="w-12 h-10 lg:w-16 lg:h-14" src={Diamond} alt="" />
+          <h3 className="mt-2 text-xs lg:text-sm font-semibold">
+            Получите Pro-версию
+          </h3>
+          <p className="text-[10px] lg:text-[11px] text-[#616161] mt-1 leading-tight">
+            Обновитесь до Pro и получите доступ ко всем курсам, бонусам
+          </p>
+          <p className="text-[10px] lg:text-[11px] text-[#616161] mt-1">
+            и сертификатам!
+          </p>
+          <button className="mt-2 lg:mt-3 text-[10px] lg:text-xs px-4 lg:px-6 py-1.5 lg:py-2.5 btn">
+            Перейти
+          </button>
+        </div>
 
-         <div className="flex py-2 lg:py-2.5 px-2 lg:px-2 gap-2 lg:gap-3">
-           <img src={Avatar} alt="" className="w-8 h-8 lg:w-10 lg:h-10 flex-shrink-0" />
-           <div className="min-w-0">
-             <h3 className="font-bold text-xs lg:text-sm truncate">Creative Bro</h3>
-             <p className="text-[#616161] text-[10px] lg:text-xs">Student</p>
-           </div>
-         </div>
+        <div className="flex py-2 lg:py-2.5 px-2 lg:px-2 gap-2 lg:gap-3">
+          <img
+            src={Avatar}
+            alt=""
+            className="w-8 h-8 lg:w-10 lg:h-10 flex-shrink-0"
+          />
+          <div className="min-w-0">
+            <h3 className="font-bold text-xs lg:text-sm truncate">
+              Creative Bro
+            </h3>
+            <p className="text-[#616161] text-[10px] lg:text-xs">Student</p>
+          </div>
+        </div>
       </div>
     </div>
   );

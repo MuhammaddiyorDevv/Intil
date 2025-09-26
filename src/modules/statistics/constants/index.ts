@@ -1,6 +1,8 @@
 import beginning from "../images/beginning.jpg";
 import user from "../images/alisher.svg";
 import beginImg from "../images/Beginning.svg";
+import intermediate from "../images/Intermediate.svg";
+import master from "../images/Master.svg";
 import type { Course } from "../types";
 
 export const courses: Course[] = [
@@ -23,8 +25,8 @@ export const courses: Course[] = [
   {
     id: 2,
     title: "Figma Master Class",
-    level: "Начинающий",
-    levelIcon: beginImg,
+    level: "Средний уровень",
+    levelIcon: intermediate,
     image: beginning,
     rating: 4.5,
     price: "1 200 000 UZS",
@@ -39,8 +41,8 @@ export const courses: Course[] = [
   {
     id: 3,
     title: "Figma Master Class",
-    level: "Начинающий",
-    levelIcon: beginImg,
+    level: "Мастер",
+    levelIcon: master,
     image: beginning,
     rating: 4.5,
     price: "1 200 000 UZS",
@@ -55,8 +57,8 @@ export const courses: Course[] = [
   {
     id: 4,
     title: "Figma Master Class",
-    level: "Начинающий",
-    levelIcon: beginImg,
+    level: "Средний уровень",
+    levelIcon: intermediate,
     image: beginning,
     rating: 4.5,
     price: "1 200 000 UZS",
@@ -71,8 +73,8 @@ export const courses: Course[] = [
   {
     id: 5,
     title: "Figma Master Class",
-    level: "Начинающий",
-    levelIcon: beginImg,
+    level: "Мастер",
+    levelIcon: master,
     image: beginning,
     rating: 4.5,
     price: "1 200 000 UZS",
