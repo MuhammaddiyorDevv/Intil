@@ -1,10 +1,11 @@
 import React from "react";
 import NewCourse from "./NewCourse";
+import Mentors from "./Mentors";
 
 const HomePage: React.FC = () => {
   return (
-    <div className="">
-      <h1 className="text-3xl font-bold text-gray-900 mb-4">Bosh Sahifa</h1>
+    <div className="flex flex-col gap-5">
+      <Mentors />
       <NewCourse />
     </div>
   );
