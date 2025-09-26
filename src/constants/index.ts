@@ -11,14 +11,14 @@ export const sidebarItems: SidebarItem[] = [
   {
     id: "myCourse",
     label: "Мои курсы",
-    path: "/all-course",
+    path: "/my-course",
     icon: "/src/assets/images/sidebar/link-cloud-sucess.svg",
     activeIcon: "/src/assets/images/sidebar/link-cloud-active.svg",
   },
   {
     id: "allCourse",
     label: "Все курсы",
-    path: "/my-course",
+    path: "/all-course",
     icon: "/src/assets/images/sidebar/bookshelf.svg",
     activeIcon: "/src/assets/images/sidebar/bookshelf-active.svg",
   },

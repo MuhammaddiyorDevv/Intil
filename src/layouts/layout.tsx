@@ -1,7 +1,7 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Sidebar from './sidebar';
-import Header from './header';
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Sidebar from "./sidebar";
+import Header from "./header";
 
 const Layout: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const Layout: React.FC = () => {
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header />
         <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100">
-          <div className="container mx-auto px-6 py-8">
+          <div className="px-6 py-8">
             <Outlet />
           </div>
         </main>
