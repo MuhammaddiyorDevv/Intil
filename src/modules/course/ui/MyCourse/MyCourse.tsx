@@ -24,17 +24,17 @@ const MyCourse: React.FC = () => {
     setActiveTab(tabId);
   };
 
-  const filteredCourses = activeTab === "my-courses" ? myCoursesData : archiveCoursesData;
+  const filteredCourses =
+    activeTab === "my-courses" ? myCoursesData : archiveCoursesData;
 
   return (
-    <div className="">
-      <div className="bg-white p-5 rounded-[20px]">
-        <PageHeader
-          title="Мои курсы"
-          tabs={tabs}
-          onTabChange={handleTabChange}
+    <div className="bg-white min-h-[calc(100vh-8rem)] p-5 rounded-[20px] flex flex-col">
+      <PageHeader title="Мои курсы" tabs={tabs} onTabChange={handleTabChange} />
+      <div className="flex-1 mt-5">
+        <MyCoursesGrid
+          courses={filteredCourses}
+          isArchive={activeTab === "archive"}
         />
-        <MyCoursesGrid courses={filteredCourses} />
       </div>
     </div>
   );

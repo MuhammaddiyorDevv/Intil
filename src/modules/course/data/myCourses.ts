@@ -58,30 +58,30 @@ export const myCoursesData: MyCourse[] = [
 ];
 
 export const archiveCoursesData: MyCourse[] = [
-  {
-    id: 5,
-    title: "Python для начинающих",
-    description:
-      "Изучите основы программирования на Python с нуля до создания первых проектов.",
-    instructor: {
-      name: "Алексей Петров",
-      avatar: Avatar,
-    },
-    progress: 100,
-    image: Teacher,
-    gradient: "from-yellow-500 to-orange-600",
-  },
-  {
-    id: 6,
-    title: "Основы дизайна",
-    description:
-      "Изучите принципы дизайна, цветовую теорию и создание визуальных концепций.",
-    instructor: {
-      name: "Мария Иванова",
-      avatar: Avatar,
-    },
-    progress: 100,
-    image: Teacher,
-    gradient: "from-pink-500 to-rose-600",
-  },
+  // {
+  //   id: 5,
+  //   title: "Python для начинающих",
+  //   description:
+  //     "Изучите основы программирования на Python с нуля до создания первых проектов.",
+  //   instructor: {
+  //     name: "Алексей Петров",
+  //     avatar: Avatar,
+  //   },
+  //   progress: 100,
+  //   image: Teacher,
+  //   gradient: "from-yellow-500 to-orange-600",
+  // },
+  // {
+  //   id: 6,
+  //   title: "Основы дизайна",
+  //   description:
+  //     "Изучите принципы дизайна, цветовую теорию и создание визуальных концепций.",
+  //   instructor: {
+  //     name: "Мария Иванова",
+  //     avatar: Avatar,
+  //   },
+  //   progress: 100,
+  //   image: Teacher,
+  //   gradient: "from-pink-500 to-rose-600",
+  // },
 ];
