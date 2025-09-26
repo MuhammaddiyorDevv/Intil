@@ -13,3 +13,10 @@ export interface Course {
   students: number;
   duration: string;
 }
+
+export interface Mentor {
+  id: number;
+  name: string;
+  role: string;
+  image: string;
+}
