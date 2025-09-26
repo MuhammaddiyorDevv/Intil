@@ -10,6 +10,7 @@ const AllCoursePage = lazy(
 const MyCoursePage = lazy(() => import("../modules/course/ui/MyCourse/MyCourse"));
 const MentorsPage = lazy(() => import("../modules/mentors/ui/MentorsPage"));
 const BlogsPage = lazy(() => import("../modules/blogs/ui/BlogsPage"));
+const BlogDetailPage = lazy(() => import("../modules/blogs/ui/BlogDetailPage"));
 const SavedPage = lazy(() => import("../modules/saved/ui/SavedPage"));
 const SubscriptionPage = lazy(
   () => import("../modules/subscription/ui/SubscriptionPage")
@@ -59,6 +60,14 @@ const RouterMain = () => {
             element={
               <SuspenseContainer>
                 <BlogsPage />
+              </SuspenseContainer>
+            }
+          />
+          <Route
+            path="blogs/:id"
+            element={
+              <SuspenseContainer>
+                <BlogDetailPage />
               </SuspenseContainer>
             }
           />

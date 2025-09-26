@@ -19,7 +19,9 @@ const Sidebar: React.FC = () => {
       <nav className="mt-5 flex flex-col flex-1">
         <ul className="space-y-2">
           {sidebarItems.map((item) => {
-            const isActive = location.pathname === item.path;
+            const isActive = item.id === 'blogs' 
+              ? location.pathname.startsWith(item.path)
+              : location.pathname === item.path;
             const iconSrc = isActive ? item.activeIcon : item.icon;
 
             return (
