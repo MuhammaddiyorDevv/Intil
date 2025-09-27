@@ -12,7 +12,7 @@ export default function Sidebar() {
   const pathname = location.pathname;
 
   return (
-    <aside className="w-64 bg-white shadow-md flex flex-col px-3 h-screen">
+    <aside className="w-64 bg-white shadow-md flex flex-col px-3 pb-5 h-screen">
       <div className="flex items-center py-[20px]">
         <img src={logo} alt="Logo" />
       </div>
@@ -86,13 +86,26 @@ export default function Sidebar() {
           </a>
         </div>
 
-        <div className="flex py-[10px] px-[8px] gap-[12px]">
+        <Link
+          to="/profile"
+          className={`flex py-[10px] px-[8px] gap-[12px] rounded-lg transition ${
+            pathname === "/profile"
+              ? "bg-[#567D4A] text-white"
+              : "hover:bg-gray-100"
+          }`}
+        >
           <img src={avatar} alt="User Avatar" />
           <div>
             <h3 className="font-bold">Creative Bro</h3>
-            <p className="text-[#616161]">Student</p>
+            <p
+              className={`${
+                pathname === "/profile" ? "text-white" : "text-[#616161]"
+              }`}
+            >
+              Student
+            </p>
           </div>
-        </div>
+        </Link>
       </div>
     </aside>
   );
