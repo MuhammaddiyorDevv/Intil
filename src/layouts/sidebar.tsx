@@ -1,138 +1,99 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import { FiChevronRight } from "react-icons/fi";
-import { sidebarItems, bottomSidebarItems } from "../constants";
-import Logo from "../assets/images/sidebar/Logo.svg";
-import Diamond from "../assets/images/sidebar/Diamond.svg";
-import Avatar from "../assets/images/sidebar/Avatar.svg";
+"use client";
 
-const Sidebar: React.FC = () => {
+import { ChevronRight } from "lucide-react";
+import { bottomSidebarItems, sidebarItems } from "@/constants/index";
+import { Link, useLocation } from "react-router-dom";
+import logo from "@/assets/images/sidebar/Logo.svg";
+import diamond from "@/assets/images/sidebar/Diamond.svg";
+import avatar from "@/assets/images/sidebar/Avatar.svg";
+
+export default function Sidebar() {
   const location = useLocation();
+  const pathname = location.pathname;
 
   return (
-    <div className="w-[246px] lg:w-[246px] md:w-[220px] sm:w-[200px] px-3 bg-white shadow-lg h-screen flex flex-col">
-      <div className="py-4 lg:py-5">
-        <img className="cursor-pointer w-auto h-6 lg:h-8" src={Logo} alt="" />
+    <aside className="w-64 bg-white shadow-md flex flex-col px-3 h-screen">
+      <div className="flex items-center py-[20px]">
+        <img src={logo} alt="Logo" />
       </div>
-      <hr className="border-[#E5E5E5]"></hr>
+      <hr className="text-[#E5E5E5]" />
 
-      <nav className="mt-5 flex flex-col flex-1">
-        <ul className="space-y-2">
-          {sidebarItems.map((item) => {
-            const isActive =
-              item.id === "blogs"
-                ? location.pathname.startsWith(item.path)
-                : location.pathname === item.path;
-            const iconSrc = isActive ? item.activeIcon : item.icon;
-
-            return (
-              <li key={item.id}>
-                <Link
-                  to={item.path}
-                  className={`flex items-center justify-between p-2 lg:p-3 text-xs lg:text-sm font-medium rounded-[12px] transition-colors ${
-                    isActive
-                      ? "bg-[#567D4A] text-white"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-                  }`}
-                >
-                  <div className="flex items-center min-w-0">
-                    {iconSrc && (
-                      <img
-                        src={iconSrc}
-                        alt={item.label}
-                        className="w-4 h-4 lg:w-5 lg:h-5 mr-2 lg:mr-3 flex-shrink-0"
-                      />
-                    )}
-                    <span className="truncate text-xs lg:text-sm">
-                      {item.label}
-                    </span>
-                  </div>
-                  <FiChevronRight
-                    className={`w-3 h-3 lg:w-4 lg:h-4 transition-colors flex-shrink-0 ${
-                      isActive ? "text-white" : "text-gray-400"
+      <nav className="flex-1 py-[20px] max-[1920px]:overflow-y-auto">
+        <div>
+          <ul className="space-y-2 pb-[20px]">
+            {sidebarItems.map(({ id, label, path, icon: Icon }) => {
+              const active =
+                pathname === path ||
+                (path === "/allCourses" && pathname.startsWith("/course/"));
+              return (
+                <li key={id}>
+                  <Link
+                    to={path}
+                    className={`flex items-center gap-3 p-3 rounded-lg transition ${
+                      active
+                        ? "bg-[#567D4A] text-white"
+                        : "text-gray-700 hover:bg-gray-100"
                     }`}
-                  />
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+                  >
+                    <Icon size={20} />
+                    <span>{label}</span>
+                    <ChevronRight size={16} className="ml-auto" />
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
 
-        <div className="my-5">
           <hr className="border-[#E5E5E5]" />
-        </div>
 
-        <ul className="space-y-2">
-          {bottomSidebarItems.map((item) => {
-            const isActive = location.pathname === item.path;
-            const iconSrc = isActive ? item.activeIcon : item.icon;
-
-            return (
-              <li key={item.id}>
-                <Link
-                  to={item.path}
-                  className={`flex items-center justify-between px-4 py-3 text-sm font-medium rounded-[12px] transition-colors ${
-                    isActive
-                      ? "bg-[#567D4A] text-white"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-                  }`}
-                >
-                  <div className="flex items-center min-w-0">
-                    {iconSrc && (
-                      <img
-                        src={iconSrc}
-                        alt={item.label}
-                        className="w-4 h-4 lg:w-5 lg:h-5 mr-2 lg:mr-3 flex-shrink-0"
-                      />
-                    )}
-                    <span className="truncate text-xs lg:text-sm">
-                      {item.label}
-                    </span>
-                  </div>
-                  <FiChevronRight
-                    className={`w-3 h-3 lg:w-4 lg:h-4 transition-colors flex-shrink-0 ${
-                      isActive ? "text-white" : "text-gray-400"
+          <ul className="space-y-2 py-[20px]">
+            {bottomSidebarItems.map(({ id, label, path, icon: Icon }) => {
+              const active = pathname === path;
+              return (
+                <li key={id}>
+                  <Link
+                    to={path}
+                    className={`flex items-center gap-3 p-3 rounded-lg transition ${
+                      active
+                        ? "bg-[#567D4A] text-white"
+                        : "text-gray-700 hover:bg-gray-100"
                     }`}
-                  />
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+                  >
+                    <Icon size={20} />
+                    <span className="text-[15px]">{label}</span>
+                    <ChevronRight size={16} className="ml-auto" />
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </nav>
-      <div className="rounded-lg flex flex-col gap-4 lg:gap-5">
-        <div className="bg-[#F6F6F6] flex flex-col items-center text-center py-3 lg:py-4 px-2 lg:px-3 rounded-[12px] lg:rounded-[16px]">
-          <img className="w-12 h-10 lg:w-16 lg:h-14" src={Diamond} alt="" />
-          <h3 className="mt-2 text-xs lg:text-sm font-semibold">
-            Получите Pro-версию
-          </h3>
-          <p className="text-[10px] lg:text-[11px] text-[#616161] mt-1 leading-tight">
-            Обновитесь до Pro и получите доступ ко всем курсам, бонусам
+
+      <div className="rounded-lg flex flex-col gap-[20px]">
+        <div className="bg-[#F6F6F6] flex flex-col items-center text-center py-[16px] px-[14px] rounded-t-lg">
+          <img className="w-[64px] h-[56px]" src={diamond} alt="Pro" />
+          <h3 className="mt-2 font-semibold">Получите Pro-версию</h3>
+          <p className="text-[12px] text-[#616161] mt-1">
+            Обновитесь до Pro и получите доступ ко всем курсам, бонусам и
+            сертификатам!
           </p>
-          <p className="text-[10px] lg:text-[11px] text-[#616161] mt-1">
-            и сертификатам!
-          </p>
-          <button className="mt-2 lg:mt-3 text-[10px] lg:text-xs px-4 lg:px-6 py-1.5 lg:py-2.5 btn">
+          <a
+            href="#"
+            className="mt-3 bg-[#567D4A] text-white px-[72.5px] py-[11px] rounded-[99px]"
+          >
             Перейти
-          </button>
+          </a>
         </div>
 
-        <div className="flex py-2 lg:py-2.5 px-2 lg:px-2 gap-2 lg:gap-3">
-          <img
-            src={Avatar}
-            alt=""
-            className="w-8 h-8 lg:w-10 lg:h-10 flex-shrink-0"
-          />
-          <div className="min-w-0">
-            <h3 className="font-bold text-xs lg:text-sm truncate">
-              Creative Bro
-            </h3>
-            <p className="text-[#616161] text-[10px] lg:text-xs">Student</p>
+        <div className="flex py-[10px] px-[8px] gap-[12px]">
+          <img src={avatar} alt="User Avatar" />
+          <div>
+            <h3 className="font-bold">Creative Bro</h3>
+            <p className="text-[#616161]">Student</p>
           </div>
         </div>
       </div>
-    </div>
+    </aside>
   );
-};
-
-export default Sidebar;
+}

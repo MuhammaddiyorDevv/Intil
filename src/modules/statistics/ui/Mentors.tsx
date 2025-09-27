@@ -15,7 +15,7 @@ const Mentors = () => {
     <div className="bg-white p-5 rounded-[20px]">
       <div className="w-full flex items-center justify-between">
         <div>
-          <p className="font-bold text-xl sm:text-2xl">
+          <p className="font-bold text-xl sm:text-2xl flex">
             Ваши наставники
             <span className="hidden sm:flex">- эксперты в деле</span>
           </p>
@@ -62,7 +62,11 @@ const Mentors = () => {
           <SwiperSlide key={item.id}>
             <div className="border rounded-2xl border-[#E5E5E5] p-4 flex items-center justify-between gap-[61px]">
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-                <img src={item.image} alt={item.role} />
+                <img
+                  src={item.image}
+                  alt={item.role}
+                  className="cursor-pointer"
+                />
                 <div>
                   <p className="font-medium">{item.name}</p>
                   <p className="text-sm text-[#616161]">{item.role}</p>
