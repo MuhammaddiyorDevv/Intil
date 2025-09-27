@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/card";
 import { CirclePlus, Clock, GraduationCap, Star, Users } from "lucide-react";
 import { courses } from "../constants/index";
+import { Link } from "react-router-dom";
 
 const NewCourse = () => {
   return (
@@ -17,9 +18,9 @@ const NewCourse = () => {
             Откройте для себя новые возможности обучения
           </p>
         </div>
-        <button className="hidden sm:flex py-3.5 px-5 btn">
+        <Link to={"/all-course"} className="hidden sm:flex py-3.5 px-5 btn">
           Смотреть еще <CirclePlus />
-        </button>
+        </Link>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {courses.map((course) => (
@@ -34,7 +35,7 @@ const NewCourse = () => {
                   alt={course.title}
                   className="rounded-t-2xl"
                 />
-                <div className="absolute bg-white top-[14px] left-[14px] flex items-center gap-[6px] p-[6px] rounded-[4px]">
+                <div className="absolute bg-white top-[14px] left-[14px] flex items-center gap-[6px] p-[6px] rounded-[4px] cursor-pointer">
                   <p className="text-[10px] font-semibold">{course.level}</p>
                   <img
                     src={course.levelIcon}
@@ -66,7 +67,7 @@ const NewCourse = () => {
             </CardContent>
 
             <CardFooter className="flex-col gap-3 items-start">
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1.5 cursor-pointer">
                 <img src={course.authorImg} alt={course.author} />
                 <p className="text-xs font-medium">{course.author}</p>
               </div>
@@ -90,9 +91,12 @@ const NewCourse = () => {
         ))}
       </div>
       <div className="w-full flex justify-center">
-        <button className="flex sm:hidden! w-full py-3.5 px-5 btn">
+        <Link
+          to={"/all-course"}
+          className="flex sm:hidden! w-full py-3.5 px-5 btn"
+        >
           Смотреть еще <CirclePlus />
-        </button>
+        </Link>
       </div>
     </div>
   );
