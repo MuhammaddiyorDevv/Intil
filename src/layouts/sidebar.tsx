@@ -24,7 +24,7 @@ export default function Sidebar() {
             {sidebarItems.map(({ id, label, path, icon: Icon }) => {
               const active =
                 pathname === path ||
-                (path === "/allCourses" && pathname.startsWith("/course/"));
+                (path === "/all-course" && pathname.startsWith("/course/"));
               return (
                 <li key={id}>
                   <Link
