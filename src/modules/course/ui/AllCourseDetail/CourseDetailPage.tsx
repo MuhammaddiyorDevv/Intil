@@ -9,7 +9,7 @@ import CourseContent from "./CourseContent";
 import CourseReviews from "./CourseReviews";
 import CourseAuthors from "./CourseAuthors";
 import CourseSidebar from "./CourseSidebar";
-import type { CourseDetail } from "../../types/course";
+import type { CourseDetail } from "../../types/AllCourseDetail";
 
 // Mock data - in real app this would come from API
 const mockCourseData: CourseDetail = {
@@ -32,6 +32,36 @@ const mockCourseData: CourseDetail = {
   duration: "5h 32m",
   image: "/src/assets/images/newCourse/beginning.jpg",
   videoUrl: "https://www.youtube.com/embed/ODpB9-MCa5s?si=Yyjb4GQQGZYXyIjl",
+  instructor: {
+    name: "Абдуллаев Алишер",
+    avatar: "/src/assets/images/mentors/Avatar.svg",
+  },
+  level: "Intermediate",
+  uroven: {
+    Beginning: () => null,
+    Intermediate: () => null,
+    Master: () => null,
+  },
+  courseLessons: [
+    {
+      id: 1,
+      title: "Введение в Figma",
+      duration: "11 минут",
+      videoUrl: "https://www.youtube.com/embed/ODpB9-MCa5s?si=Yyjb4GQQGZYXyIjl",
+    },
+    {
+      id: 2,
+      title: "Основы интерфейса",
+      duration: "15 минут",
+      videoUrl: "https://www.youtube.com/embed/ODpB9-MCa5s?si=Yyjb4GQQGZYXyIjl",
+    },
+    {
+      id: 3,
+      title: "Создание компонентов",
+      duration: "20 минут",
+      videoUrl: "https://www.youtube.com/embed/ODpB9-MCa5s?si=Yyjb4GQQGZYXyIjl",
+    },
+  ],
   authors: [
     {
       id: 1,
@@ -88,6 +118,9 @@ const CourseDetailPage: React.FC = () => {
 
   // In real app, fetch course data by ID
   const course = mockCourseData;
+  
+  // Log the course ID for debugging (remove in production)
+  console.log("Course ID:", id);
 
   const handleBuyNow = () => {
     console.log("Buy now clicked");

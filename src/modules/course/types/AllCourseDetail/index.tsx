@@ -3,6 +3,7 @@ import type { AllCoursesPageCourse } from "../AllCourse";
 export interface CourseDetail extends AllCoursesPageCourse {
   fullDescription: string;
   keyPoints: string[];
+  videoUrl?: string;
   courseLessons: Array<{
     id: number;
     title: string;

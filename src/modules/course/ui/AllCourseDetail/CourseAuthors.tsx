@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import type { CourseAuthor } from "../../types/course";
+import type { CourseAuthor } from "../../types/AllCourseDetail";
 
 interface CourseAuthorsProps {
   authors: CourseAuthor[];

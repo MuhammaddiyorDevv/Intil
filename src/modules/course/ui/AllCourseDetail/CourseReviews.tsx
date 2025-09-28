@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { MdStar } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
-import type { Review } from "../../types/course";
+import type { Review } from "../../types/AllCourseDetail";
 
 interface CourseReviewsProps {
   reviews: Review[];
