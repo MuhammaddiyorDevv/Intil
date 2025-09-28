@@ -6,8 +6,12 @@ import master from "@/assets/images/newCourse/Master.svg";
 import avatar from "@/assets/images/mentors/Avatar.svg";
 import girl from "@/assets/images/mentors/girl.svg";
 import man from "@/assets/images/mentors/man.svg";
-import type { Course, Mentor } from "../types";
-
+import team from "@/assets/images/yourCourse/team.png";
+import teamMobile from "@/assets/images/yourCourse/teammobile.svg";
+import comp from "@/assets/images/yourCourse/comp.png";
+import left from "@/assets/images/yourCourse/left.png";
+import lola from "@/assets/images/yourCourse/lola.svg";
+import type { Course, Mentor, YourCourse } from "../types";
 export const courses: Course[] = [
   {
     id: 1,
@@ -137,5 +141,52 @@ export const mentors: Mentor[] = [
     name: "Абдуллаев Алишер",
     role: "Senior UX Designer",
     image: girl,
+  },
+];
+export const yourCourse: YourCourse[] = [
+  {
+    id: 1,
+    image: team,
+    imageMobile: teamMobile,
+    title: "Креативность в мире 3D-дизайна",
+    role: "3D Master Class — это динамичный и захватывающий...",
+    user: lola,
+    name: "Lola Yuldasheva",
+  },
+  {
+    id: 2,
+    image: comp,
+    imageMobile: teamMobile,
+    title: "Креативность в мире 3D-дизайна",
+    role: "3D Master Class — это динамичный и захватывающий...",
+    user: lola,
+    name: "Lola Yuldasheva",
+  },
+  {
+    id: 3,
+    image: left,
+    imageMobile: teamMobile,
+    title: "Креативность в мире 3D-дизайна",
+    role: "3D Master Class — это динамичный и захватывающий...",
+    user: lola,
+    name: "Lola Yuldasheva",
+  },
+  {
+    id: 4,
+    image: comp,
+    imageMobile: teamMobile,
+    title: "Креативность в мире 3D-дизайна",
+    role: "3D Master Class — это динамичный и захватывающий...",
+    user: lola,
+    name: "Lola Yuldasheva",
+  },
+  {
+    id: 5,
+    image: left,
+    imageMobile: teamMobile,
+    title: "Креативность в мире 3D-дизайна",
+    role: "3D Master Class — это динамичный и захватывающий...",
+    user: lola,
+    name: "Lola Yuldasheva",
   },
 ];

@@ -20,3 +20,12 @@ export interface Mentor {
   role: string;
   image: string;
 }
+export interface YourCourse {
+  id: number;
+  image: string;
+  imageMobile: string;
+  title: string;
+  role: string;
+  user: string;
+  name: string;
+}
