@@ -1,17 +1,15 @@
 import React from "react";
-import type { MyCourse } from "../../types/MyCourse";
+import type { MyCoursesGridProps } from "../../types/MyCourse";
 import MyCourseCard from "./MyCourseCard";
 import EmptyState from "./EmptyState";
 
-interface MyCoursesGridProps {
-  courses: MyCourse[];
-  isArchive?: boolean;
-}
-
-const MyCoursesGrid: React.FC<MyCoursesGridProps> = ({ courses, isArchive = false }) => {
+const MyCoursesGrid: React.FC<MyCoursesGridProps> = ({
+  courses,
+  isArchive = false,
+}) => {
   if (courses.length === 0) {
     return (
-      <div className="flex items-center justify-center py-20">
+      <div className="flex items-center justify-center py-20 ">
         <EmptyState
           title={isArchive ? "Пока пусто" : "Курсы не найдены"}
           description={

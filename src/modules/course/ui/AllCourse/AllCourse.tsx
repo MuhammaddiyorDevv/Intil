@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { allCoursesData } from "../../data/allCourses";
+import { allCoursesData } from "../../constants/allCourses";
 import FiltersSidebar from "../../../shared/FiltersSidebar";
 import SearchBar from "../../../shared/SearchBar";
 import CoursesGrid from "./CoursesGrid";
