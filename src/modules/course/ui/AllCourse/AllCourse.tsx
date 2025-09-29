@@ -3,7 +3,7 @@ import { allCoursesData } from "../../constants/allCourses";
 import FiltersSidebar from "../../../shared/FiltersSidebar";
 import SearchBar from "../../../shared/SearchBar";
 import CoursesGrid from "./CoursesGrid";
-import { MdFilterList } from "react-icons/md";
+import { FiFilter } from "react-icons/fi";
 
 const AllCoursesPage = () => {
   const [priceRange, setPriceRange] = useState({ min: 0, max: 10000000 });
@@ -59,9 +59,9 @@ const AllCoursesPage = () => {
             <button
               aria-label="filter"
               onClick={() => setIsFilterModalOpen(true)}
-              className="lg:hidden flex items-center justify-center w-12 h-12 bg-[#567D4A] rounded-[12px] text-white hover:bg-[#0056b3] transition-colors"
+              className="lg:hidden flex items-center justify-center w-12 h-12 bg-[#567D4A] rounded-[12px] text-white cursor-pointer transition-colors"
             >
-              <MdFilterList size={24} />
+              <FiFilter size={24} />
             </button>
           </div>
 
@@ -72,38 +72,37 @@ const AllCoursesPage = () => {
       {isFilterModalOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div
-            className="absolute inset-0 bg-black bg-opacity-50"
+            className="absolute inset-0 bg-opacity-50"
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }}
             onClick={() => setIsFilterModalOpen(false)}
           />
 
-          <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-[20px] max-h-[80vh] overflow-y-auto">
-            <div className="p-4">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-lg font-semibold">Фильтры</h2>
-                <button
-                  onClick={() => setIsFilterModalOpen(false)}
-                  className="text-gray-500 hover:text-gray-700"
-                >
-                  ✕
-                </button>
-              </div>
+          <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-[20px] max-h-[80vh] flex flex-col">
+            <div className="flex-1 overflow-y-auto p-4 pb-20">
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="text-lg font-semibold">
+                    Фильтры
+                  </h2>
+                  <button
+                    onClick={() => setIsFilterModalOpen(false)}
+                    className="text-[#05935D] hover:text-gray-700"
+                  >
+                    Очистить
+                  </button>
+                </div>
 
               <FiltersSidebar
                 priceRange={priceRange}
                 onPriceChange={handlePriceChange}
                 type="courses"
               />
+            </div>
 
-              <div className="flex gap-3 pt-4 border-t">
+            <div className="sticky bottom-0 bg-white border-t border-gray-200 p-4">
+              <div className="flex gap-3">
                 <button
                   onClick={() => setIsFilterModalOpen(false)}
-                  className="flex-1 py-3 px-4 border border-gray-300 rounded-[12px] text-gray-700 font-medium"
-                >
-                  Сбросить
-                </button>
-                <button
-                  onClick={() => setIsFilterModalOpen(false)}
-                  className="flex-1 py-3 px-4 bg-[#006ADC] text-white rounded-[12px] font-medium"
+                  className="flex-1 py-3 bg-[#567D4A] px-4 border border-gray-300 rounded-[99px] text-white font-medium"
                 >
                   Применить
                 </button>
