@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { MdPeople, MdSchool, MdAccessTime, MdPlayArrow } from "react-icons/md";
 import { FiSmartphone, FiHeadphones } from "react-icons/fi";
+import Modal from "../../../../components/ui/modal";
 
 interface CourseSidebarProps {
   price: string;
@@ -23,6 +24,18 @@ const CourseSidebar: React.FC<CourseSidebarProps> = ({
   onBuyNow,
   onAddToCart
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleBuyNow = () => {
+    setIsModalOpen(true);
+    if (onBuyNow) {
+      onBuyNow();
+    }
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
   const sidebarSections = [
     { id: "about", title: "О курсе", href: "#about" },
     { id: "key-points", title: "Ключевой момент", href: "#key-points" },
@@ -59,7 +72,7 @@ const CourseSidebar: React.FC<CourseSidebarProps> = ({
           </div>
 
           <button
-            onClick={onBuyNow}
+            onClick={handleBuyNow}
             className="w-full bg-[#567D4A] text-white py-3 px-6 rounded-[99px] font-semibold hover:text-[#567D4A] hover:bg-white border-[1px] border-[#567D4A] transition-colors mb-4"
           >
             Купить сейчас
@@ -130,6 +143,46 @@ const CourseSidebar: React.FC<CourseSidebarProps> = ({
           </div>
         </div>
       </div>
+
+      {/* Purchase Modal */}
+      <Modal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        title="Выбрать план"
+      >
+        <div className="text-center">
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              Вы хотите купить этот курс?
+            </h3>
+            <p className="text-gray-600 mb-4">
+              Цена: <span className="font-bold text-[#567D4A]">{price}</span>
+            </p>
+            <p className="text-sm text-gray-500">
+              После покупки вы получите пожизненный доступ к курсу
+            </p>
+          </div>
+
+          <div className="flex gap-3">
+            <button
+              onClick={handleCloseModal}
+              className="flex-1 bg-gray-200 text-gray-800 py-2 px-4 rounded-lg font-medium hover:bg-gray-300 transition-colors"
+            >
+              Отмена
+            </button>
+            <button
+              onClick={() => {
+                // Here you can add the actual purchase logic
+                console.log("Purchase confirmed");
+                handleCloseModal();
+              }}
+              className="flex-1 bg-[#567D4A] text-white py-2 px-4 rounded-lg font-medium hover:bg-[#4a6b3d] transition-colors"
+            >
+              Подтвердить покупку
+            </button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };
