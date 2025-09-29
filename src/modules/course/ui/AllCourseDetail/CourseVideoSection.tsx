@@ -2,12 +2,7 @@
 
 import React, { useState } from "react";
 import { MdPlayArrow, MdClose } from "react-icons/md";
-
-interface CourseVideoSectionProps {
-  image: string;
-  title: string;
-  videoUrl?: string;
-}
+import type { CourseVideoSectionProps } from "../../types/AllCourseDetail";
 
 const CourseVideoSection: React.FC<CourseVideoSectionProps> = ({
   image,

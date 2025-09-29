@@ -1,4 +1,3 @@
-import React from "react";
 
 export interface AllCoursesPageCourse {
   id: number;
@@ -14,11 +13,7 @@ export interface AllCoursesPageCourse {
   participants: number;
   duration: string;
   image: string;
-  uroven: {
-    Beginning: React.ComponentType;
-    Intermediate: React.ComponentType;
-    Master: React.ComponentType;
-  };
+  levelImg: string;
   level: "Beginning" | "Intermediate" | "Master";
 }
 
@@ -37,4 +32,11 @@ export interface FilterOptions {
 export interface AccordionState {
   expandedAccordions: number[];
   toggleAccordion: (index: number) => void;
+}
+export interface CourseCardProps {
+  course: AllCoursesPageCourse;
+}
+
+export interface CoursesGridProps {
+  courses: AllCoursesPageCourse[];
 }

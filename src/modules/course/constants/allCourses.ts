@@ -1,7 +1,9 @@
 import type { AllCoursesPageCourse } from "../types/AllCourse";
-import Beginning from "../ui/AllCourse/uroven/Beginning";
-import Intermediate from "../ui/AllCourse/uroven/Intermediate";
-import Master from "../ui/AllCourse/uroven/Master";
+import Beginning from "@/assets/images/newCourse/Beginning.svg";
+import Intermediate from "@/assets/images/newCourse/Intermediate.svg";
+import Master from "@/assets/images/newCourse/Master.svg";
+import type { CourseDetail } from "../types/AllCourseDetail";
+import master from "@/assets/images/newCourse/Master.svg";
 
 export const allCoursesData: AllCoursesPageCourse[] = [
   {
@@ -19,11 +21,7 @@ export const allCoursesData: AllCoursesPageCourse[] = [
     participants: 2949,
     duration: "5h 32m",
     image: "/src/assets/images/newCourse/beginning.jpg",
-    uroven: {
-      Beginning,
-      Intermediate,
-      Master,
-    },
+    levelImg: Beginning,
     level: "Beginning",
   },
   {
@@ -41,11 +39,7 @@ export const allCoursesData: AllCoursesPageCourse[] = [
     participants: 1847,
     duration: "8h 15m",
     image: "/src/assets/images/newCourse/beginning.jpg",
-    uroven: {
-      Beginning,
-      Intermediate,
-      Master,
-    },
+    levelImg: Intermediate,
     level: "Intermediate",
   },
   {
@@ -63,11 +57,7 @@ export const allCoursesData: AllCoursesPageCourse[] = [
     participants: 3256,
     duration: "6h 45m",
     image: "/src/assets/images/newCourse/beginning.jpg",
-    uroven: {
-      Beginning,
-      Intermediate,
-      Master,
-    },
+    levelImg: Master,
     level: "Master",
   },
   {
@@ -85,11 +75,7 @@ export const allCoursesData: AllCoursesPageCourse[] = [
     participants: 1523,
     duration: "10h 20m",
     image: "/src/assets/images/newCourse/beginning.jpg",
-    uroven: {
-      Beginning,
-      Intermediate,
-      Master,
-    },
+    levelImg: Intermediate,
     level: "Beginning",
   },
   {
@@ -107,11 +93,7 @@ export const allCoursesData: AllCoursesPageCourse[] = [
     participants: 2187,
     duration: "7h 30m",
     image: "/src/assets/images/newCourse/beginning.jpg",
-    uroven: {
-      Beginning,
-      Intermediate,
-      Master,
-    },
+    levelImg: Beginning,
     level: "Intermediate",
   },
   {
@@ -129,11 +111,103 @@ export const allCoursesData: AllCoursesPageCourse[] = [
     participants: 987,
     duration: "12h 15m",
     image: "/src/assets/images/newCourse/beginning.jpg",
-    uroven: {
-      Beginning,
-      Intermediate,
-      Master,
-    },
+    levelImg: Master,
     level: "Master",
   },
 ];
+export const mockCourseData: CourseDetail = {
+  id: 1,
+  title: "Figma Master Class",
+  description: "Learn Figma from scratch to advanced level",
+  fullDescription:
+    "Наряду с этим, искусство медиапланирования непосредственно специфицирует тактический комплексный анализ ситуации. Один из признанных классиков маркетинга Ф.Котлер определяет это так: повторный контакт специфицирует инструмент маркетинга. Отраслевой стандарт, анализируя результаты рекламной кампании, недостаточно тормозит нишевый проект, признавая определенные. Инвестиционный продукт поддерживает анализ зарубежного опыта. Примерная структура маркетингового исследования осмысленно ускоряет социометрический стиль менеджмента. Сегментация рынка спонтанно допускает экспериментальный product placement. В соответствии с законом Ципфа, точечное воздействие многопланово позиционирует рыночный маркетинг. Согласно последним исследованиям, маркетингово-ориентированное издание как всегда непредсказуемо.",
+  keyPoints: [
+    "Изучение основ Figma и интерфейса",
+    "Создание компонентов и стилей",
+    "Работа с прототипированием",
+    "Коллаборация в команде",
+    "Экспорт и передача дизайна разработчикам",
+  ],
+  price: "1 200 000 UZS",
+  rating: 4.5,
+  participants: 2949,
+  lessons: 23,
+  duration: "5h 32m",
+  image: "/src/assets/images/newCourse/beginning.jpg",
+  videoUrl: "https://www.youtube.com/embed/ODpB9-MCa5s?si=Yyjb4GQQGZYXyIjl",
+  instructor: {
+    name: "Абдуллаев Алишер",
+    avatar: "/src/assets/images/mentors/Avatar.svg",
+  },
+  level: "Intermediate",
+  levelImg: master,
+  courseLessons: [
+    {
+      id: 1,
+      title: "Введение в Figma",
+      duration: "11 минут",
+      videoUrl: "https://www.youtube.com/embed/ODpB9-MCa5s?si=Yyjb4GQQGZYXyIjl",
+    },
+    {
+      id: 2,
+      title: "Основы интерфейса",
+      duration: "15 минут",
+      videoUrl: "https://www.youtube.com/embed/ODpB9-MCa5s?si=Yyjb4GQQGZYXyIjl",
+    },
+    {
+      id: 3,
+      title: "Создание компонентов",
+      duration: "20 минут",
+      videoUrl: "https://www.youtube.com/embed/ODpB9-MCa5s?si=Yyjb4GQQGZYXyIjl",
+    },
+  ],
+  authors: [
+    {
+      id: 1,
+      name: "Абдуллаев Алишер",
+      role: "UI/UX Designer",
+      avatar: "/src/assets/images/mentors/Avatar.svg",
+      bio: "Опытный дизайнер с 5+ летним стажем работы в крупных IT компаниях",
+    },
+    {
+      id: 2,
+      name: "Иванова Мария",
+      role: "Senior UX Researcher",
+      avatar: "/src/assets/images/mentors/Avatar.svg",
+      bio: "Эксперт по пользовательскому опыту с 7+ летним опытом в исследовании UX",
+    },
+  ],
+  reviews: [
+    {
+      id: 1,
+      name: "Анна Петрова",
+      avatar: "/src/assets/images/mentors/Avatar.svg",
+      rating: 5,
+      comment:
+        "Принцип восприятия, конечно, раскручивает ролевой формат события. Эволюция мерчандайзинга, вопреки мнению П.Друкера, однообразно синхронизирует тактический рейтинг, невзирая на действия конкурентов.",
+      date: "Сегодня",
+      time: "14:30",
+    },
+    {
+      id: 2,
+      name: "Иван Сидоров",
+      avatar: "/src/assets/images/mentors/Avatar.svg",
+      rating: 4,
+      comment:
+        "Имидж программирует показ баннера, опираясь на опыт западных коллег. Не факт, что VIP-мероприятие многопланово искажает культурный ребрендинг. Медиабизнес усиливает ролевой медиабизнес. Анализ рыночных цен отражает традиционный канал.",
+      date: "Сегодня",
+      time: "09:15",
+    },
+    {
+      id: 3,
+      name: "Мария Козлова",
+      avatar: "/src/assets/images/mentors/Avatar.svg",
+      rating: 5,
+      comment:
+        "Размещение, не меняя концепции, изложенной выше, допускает анализ зарубежного опыта, не считаясь с затратами. Воздействие на потребителя стабилизирует повторный контакт, учитывая результат предыдущих медиа-кампаний. Несмотря на сложности, эластичность спроса ",
+      date: "Сегодня",
+      time: "16:45",
+    },
+  ],
+  offerEndTime: "31.12.2023",
+};

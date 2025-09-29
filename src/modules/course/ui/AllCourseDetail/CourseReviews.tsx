@@ -4,30 +4,24 @@ import React, { useState } from "react";
 import { MdStar } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
-import type { Review } from "../../types/AllCourseDetail";
+import type { CourseReviewsProps } from "../../types/AllCourseDetail";
 
-interface CourseReviewsProps {
-  reviews: Review[];
-  averageRating?: number;
-  totalReviews?: number;
-}
-
-const CourseReviews: React.FC<CourseReviewsProps> = ({ 
-  reviews, 
+const CourseReviews: React.FC<CourseReviewsProps> = ({
+  reviews,
   averageRating = 4.5,
-  totalReviews = 142 
+  totalReviews = 142,
 }) => {
   const [visibleReviews, setVisibleReviews] = useState(3);
 
   return (
-    <div className="bg-white rounded-[16px] shadow-sm p-6 mb-8">
+    <div className="bg-white rounded-[16px] shadow-sm p-4">
       <div className="flex items-center gap-3 mb-6">
-        <h1 className="text-[24px] font-bold text-[#0B0C0B]">
+        <h1 className="text-xl sm:text-2xl font-bold text-[#0B0C0B]">
           Отзывы ({totalReviews})
         </h1>
         <div className="items-center flex gap-2">
           <MdStar className="inline text-[#D9A055] text-[24px] mr-1" />
-          <span className="font-bold text-[#616161] text-[16px]">
+          <span className="font-medium text-[#616161] text-[16px]">
             {averageRating}
           </span>
         </div>
@@ -37,23 +31,23 @@ const CourseReviews: React.FC<CourseReviewsProps> = ({
         {reviews.slice(0, visibleReviews).map((review) => (
           <div
             key={review.id}
-            className="border border-[#E5E5E5] rounded-[16px] p-6"
+            className="border border-[#E5E5E5] rounded-[16px] p-4"
           >
             <div className="flex items-start gap-4 mb-4">
               <div className="flex-shrink-0">
                 <img
                   src={review.avatar}
                   alt={review.name}
-                  className="w-15 h-15 rounded-full object-cover"
+                  className="w-8 h-8 sm:w-15 sm:h-15 rounded-full object-cover"
                 />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between mb-2">
                   <div>
-                    <h3 className="text-[#0B0C0B] font-medium text-base">
+                    <h3 className="text-[#0B0C0B] text-[14px] sm:text-[16px] font-medium text-base">
                       {review.name}
                     </h3>
-                    <p className="text-[#616161] text-sm opacity-80">
+                    <p className="text-[#616161] text-xs opacity-80">
                       {review.date}, {review.time}
                     </p>
                   </div>
@@ -61,7 +55,7 @@ const CourseReviews: React.FC<CourseReviewsProps> = ({
                     {Array.from({ length: review.rating }, (_, i) => (
                       <FaStar
                         key={i}
-                        className="text-[#D9A055] text-[20px]"
+                        className="text-[#D9A055] text-[16px] sm:text-[20px]"
                       />
                     ))}
                   </div>
@@ -75,17 +69,14 @@ const CourseReviews: React.FC<CourseReviewsProps> = ({
         ))}
 
         {visibleReviews < reviews.length && (
-          <div className="flex justify-center pt-4">
+          <div className="">
             <button
               onClick={() =>
-                setVisibleReviews((prev) =>
-                  Math.min(prev + 3, reviews.length),
-                )
+                setVisibleReviews((prev) => Math.min(prev + 3, reviews.length))
               }
-              className="px-6 py-2 text-[#567D4A] cursor-pointer"
+              className="px-6 py-2 text-[#567D4A] text-[14px] font-semibold cursor-pointer"
             >
-              Показать больше{" "}
-              <IoIosArrowDown className="inline-block ml-2" />
+              Показать больше <IoIosArrowDown className="inline-block ml-2" />
             </button>
           </div>
         )}
