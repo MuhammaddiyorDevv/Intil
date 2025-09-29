@@ -10,6 +10,7 @@ import {
   Title,
   Filler,
 } from "chart.js";
+import { ArrowUp } from "lucide-react";
 import { Doughnut, Line } from "react-chartjs-2";
 
 ChartJS.register(
@@ -39,7 +40,8 @@ const courseProgressConfig = {
   type: "doughnut" as const,
   data: courseProgressData,
   options: {
-    aspectRatio: 2,
+    responsive: true,
+    maintainAspectRatio: false,
     circumference: 180,
     rotation: -90,
     plugins: {
@@ -122,20 +124,20 @@ const activityConfig = {
 
 export const CourseProgressChart = () => (
   <div className="flex items-center justify-center">
-    <div className="relative" style={{ width: "400px", height: "200px" }}>
+    <div className="relative w-[279px] h-[138px] sm:w-[400px] sm:h-[200px]">
       <Doughnut {...courseProgressConfig} />
       <div
         className="absolute inset-0 flex items-center justify-center"
         style={{ pointerEvents: "none" }}
       >
-        <div className="absolute left-8 top-8 text-xl text-[#616161] font-bold bg-white py-[13px] px-[6px] rounded-full">
+        <div className="absolute left-8 top-8 text-xs font-semibold sm:text-[18px] sm:font-bold text-[#616161] bg-white py-2 px-[5px] sm:py-[13px] sm:px-1.5 rounded-full">
           26%
         </div>
         <div className="text-center">
-          <div className="absolute top-17 left-[170px] bg-white text-[#616161] px-[4px] py-[3.5px] rounded-full text-sm font-medium mb-2">
-            ↑ 2.6%
+          <div className="absolute flex items-center top-12 sm:top-17 left-[110px] sm:left-[170px] bg-white text-[#616161] px-[4px] py-[3.5px] rounded-full text-xs font-semibold sm:text-sm sm:font-bold mb-2">
+            <ArrowUp className="text-[#567D4A] w-3 h-3" /> 2.6%
           </div>
-          <div className=" absolute bottom-3 left-[135px] text-sm text-white font-semibold">
+          <div className=" absolute bottom-1 sm:bottom-3 left-[82px] sm:left-[135px] text-[12px] text-white font-bold ">
             Magna finibus turpis
           </div>
         </div>
