@@ -52,3 +52,43 @@ export interface CourseSidebarSection {
   title: string;
   href: string;
 }
+export interface CourseAuthorsProps {
+  authors: CourseAuthor[];
+  aboutText?: string;
+}
+export interface CourseContentProps {
+  lessons: Array<{
+    id: number;
+    title: string;
+    duration: string;
+    videoUrl?: string;
+  }>;
+  onLessonClick?: (lessonId: number) => void;
+}
+export interface CourseDescriptionProps {
+  fullDescription: string;
+  keyPoints: string[];
+}
+export interface CourseDetailHeaderProps {
+  title: string;
+  badge?: string;
+}
+export interface CourseReviewsProps {
+  reviews: Review[];
+  averageRating?: number;
+  totalReviews?: number;
+}
+export interface CourseSidebarProps {
+  price: string;
+  offerEndTime?: string;
+  participants: number;
+  lessons: number;
+  duration: string;
+  onBuyNow?: () => void;
+  onAddToCart?: () => void;
+}
+export interface CourseVideoSectionProps {
+  image: string;
+  title: string;
+  videoUrl?: string;
+}

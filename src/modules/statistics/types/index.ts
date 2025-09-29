@@ -29,3 +29,10 @@ export interface YourCourse {
   user: string;
   name: string;
 }
+export interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  title?: string;
+  children?: React.ReactNode;
+  className?: string;
+}

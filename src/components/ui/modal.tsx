@@ -4,14 +4,7 @@ import { MdSchool, MdAccessTime } from "react-icons/md";
 import Payment from "../../assets/images/allCourse/PaymentImg.svg";
 import Chack from "../../assets/images/allCourse/Chack.svg";
 import CourselVideo from "../../assets/images/allCourse/carousel-video.svg";
-
-interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  title?: string;
-  children: React.ReactNode;
-  className?: string;
-}
+import type { ModalProps } from "@/modules/statistics/types";
 
 const Modal: React.FC<ModalProps> = ({
   isOpen,
@@ -109,14 +102,14 @@ const Modal: React.FC<ModalProps> = ({
             </p>
 
             <div className="border-[1px] border-[#E5E5E5] rounded-[12px]">
-              <div 
+              <div
                 className="flex items-center rounded-t-[12px] p-4 border-b border-gray-200 hover:bg-gray-50 cursor-pointer"
                 onClick={() => setSelectedPlan("basic")}
               >
-                <div 
+                <div
                   className={`w-4 h-4 border-2 rounded-full mr-4 ${
-                    selectedPlan === "basic" 
-                      ? "border-[#567D4A] bg-[#567D4A]" 
+                    selectedPlan === "basic"
+                      ? "border-[#567D4A] bg-[#567D4A]"
                       : "border-gray-400"
                   }`}
                 ></div>
@@ -137,14 +130,14 @@ const Modal: React.FC<ModalProps> = ({
                 </div>
               </div>
 
-              <div 
+              <div
                 className="flex items-center p-4 border-b border-gray-200 hover:bg-gray-50 cursor-pointer"
                 onClick={() => setSelectedPlan("pro")}
               >
-                <div 
+                <div
                   className={`w-4 h-4 border-2 rounded-full mr-4 ${
-                    selectedPlan === "pro" 
-                      ? "border-[#567D4A] bg-[#567D4A]" 
+                    selectedPlan === "pro"
+                      ? "border-[#567D4A] bg-[#567D4A]"
                       : "border-gray-400"
                   }`}
                 ></div>
@@ -165,14 +158,14 @@ const Modal: React.FC<ModalProps> = ({
                 </div>
               </div>
 
-              <div 
+              <div
                 className="flex items-center p-4 rounded-b-[12px] border-b border-gray-200 hover:bg-gray-50 cursor-pointer"
                 onClick={() => setSelectedPlan("premium")}
               >
-                <div 
+                <div
                   className={`w-4 h-4 border-2 rounded-full mr-4 ${
-                    selectedPlan === "premium" 
-                      ? "border-[#567D4A] bg-[#567D4A]" 
+                    selectedPlan === "premium"
+                      ? "border-[#567D4A] bg-[#567D4A]"
                       : "border-gray-400"
                   }`}
                 ></div>
@@ -200,7 +193,7 @@ const Modal: React.FC<ModalProps> = ({
           </div>
         </div>
 
-        <div className="px-6 pb-6">
+        <div className="px-6 pb-22">
           <button className="w-full bg-[#567D4A] text-white py-4 px-6 rounded-[99px] font-semibold text-lg hover:bg-[#4a6b3d] transition-colors mb-4">
             Приобрести
           </button>

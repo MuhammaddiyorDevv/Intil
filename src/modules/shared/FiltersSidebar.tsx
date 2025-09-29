@@ -321,7 +321,7 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
   };
 
   return (
-    <div className="w-full lg:w-[25%] h-auto border-[1px] rounded-[16px] border-[#E5E5E5]">
+    <div className="w-full h-auto border-[1px] rounded-[16px] border-[#E5E5E5]">
       <div className="flex justify-between items-center p-4 border-b-[1px] border-b-[#F2F1F5]">
         <h1 className="font-semibold">Филтры</h1>
         <MdOutlineReplay size={20} />

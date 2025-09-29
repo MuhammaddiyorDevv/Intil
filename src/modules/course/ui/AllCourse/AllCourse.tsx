@@ -1,11 +1,10 @@
-"use client";
-
 import { useCallback, useState } from "react";
 import { allCoursesData } from "../../constants/allCourses";
 import FiltersSidebar from "../../../shared/FiltersSidebar";
 import SearchBar from "../../../shared/SearchBar";
 import CoursesGrid from "./CoursesGrid";
 import { MdFilterList } from "react-icons/md";
+
 const AllCoursesPage = () => {
   const [priceRange, setPriceRange] = useState({ min: 0, max: 10000000 });
   const [searchTerm, setSearchTerm] = useState("");
@@ -37,44 +36,37 @@ const AllCoursesPage = () => {
 
   return (
     <div className="bg-white rounded-[20px] p-5">
-      <div className="hidden lg:flex gap-5">
-        <FiltersSidebar
-          priceRange={priceRange}
-          onPriceChange={handlePriceChange}
-          type="courses"
-        />
-        <div className="w-[75%] p-1">
-          <h1 className="font-semibold text-[24px]">Все курсы</h1>
-          <SearchBar
-            searchTerm={searchTerm}
-            onSearchChange={setSearchTerm}
-            placeholder="Ищите курсы"
+      <h1 className="font-semibold text-[24px] mb-4">Все курсы</h1>
+
+      <div className="flex flex-col lg:flex-row gap-5">
+        <div className="hidden lg:block w-[25%] lg:sticky lg:top-0 lg:self-start max-h-screen overflow-y-auto">
+          <FiltersSidebar
+            priceRange={priceRange}
+            onPriceChange={handlePriceChange}
+            type="courses"
           />
+        </div>
+
+        <div className="flex-1">
+          <div className="flex gap-3 mb-6">
+            <div className="flex-1">
+              <SearchBar
+                searchTerm={searchTerm}
+                onSearchChange={setSearchTerm}
+                placeholder="Ищите курсы"
+              />
+            </div>
+            <button
+              aria-label="filter"
+              onClick={() => setIsFilterModalOpen(true)}
+              className="lg:hidden flex items-center justify-center w-12 h-12 bg-[#567D4A] rounded-[12px] text-white hover:bg-[#0056b3] transition-colors"
+            >
+              <MdFilterList size={24} />
+            </button>
+          </div>
+
           <CoursesGrid courses={filteredCourses} />
         </div>
-      </div>
-
-      <div className="lg:hidden">
-        <h1 className="font-semibold text-[24px] mb-4">Все курсы</h1>
-
-        <div className="flex gap-3 mb-6">
-          <div className="flex-1">
-            <SearchBar
-              searchTerm={searchTerm}
-              onSearchChange={setSearchTerm}
-              placeholder="Ищите курсы"
-            />
-          </div>
-          <button
-            aria-label="filter"
-            onClick={() => setIsFilterModalOpen(true)}
-            className="flex items-center justify-center w-12 h-12 bg-[#567D4A] rounded-[12px] text-white hover:bg-[#0056b3] transition-colors"
-          >
-            <MdFilterList size={24} />
-          </button>
-        </div>
-
-        <CoursesGrid courses={filteredCourses} />
       </div>
 
       {isFilterModalOpen && (
@@ -87,7 +79,7 @@ const AllCoursesPage = () => {
           <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-[20px] max-h-[80vh] overflow-y-auto">
             <div className="p-4">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-lg font-semibold">Филтры</h2>
+                <h2 className="text-lg font-semibold">Фильтры</h2>
                 <button
                   onClick={() => setIsFilterModalOpen(false)}
                   className="text-gray-500 hover:text-gray-700"
@@ -96,13 +88,11 @@ const AllCoursesPage = () => {
                 </button>
               </div>
 
-              <div className="mb-4">
-                <FiltersSidebar
-                  priceRange={priceRange}
-                  onPriceChange={handlePriceChange}
-                  type="courses"
-                />
-              </div>
+              <FiltersSidebar
+                priceRange={priceRange}
+                onPriceChange={handlePriceChange}
+                type="courses"
+              />
 
               <div className="flex gap-3 pt-4 border-t">
                 <button
