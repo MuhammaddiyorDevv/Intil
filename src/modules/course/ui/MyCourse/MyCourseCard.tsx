@@ -1,18 +1,22 @@
 import React from "react";
-import type { MyCourse } from "../../types/MyCourse";
-
-interface MyCourseCardProps {
-  course: MyCourse;
-}
+import type { MyCourseCardProps } from "../../types/MyCourse";
+import * as Progress from "@radix-ui/react-progress";
 
 const MyCourseCard: React.FC<MyCourseCardProps> = ({ course }) => {
+  const [progress, setProgress] = React.useState(13);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => setProgress(85), 500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="bg-white rounded-2xl items-start flex hover:shadow-xl hover:cursor-pointer transition-shadow duration-300 overflow-hidden p-4 border border-[#E5E5E5]">
-      <div className="w-[84px] h-[84px] flex-shrink-0">
+      <div className=" flex-shrink-0">
         <img
           src={course.image}
           alt="Course thumbnail"
-          className="w-full h-full object-cover rounded-lg"
+          className="w-[120px] h-[120px] sm:w-[84px] sm:h-[84px] object-cover rounded-lg"
         />
       </div>
 
@@ -21,7 +25,7 @@ const MyCourseCard: React.FC<MyCourseCardProps> = ({ course }) => {
           <h2 className="text-sm font-bold text-gray-900 mb-1 line-clamp-1">
             {course.title}
           </h2>
-          <p className="text-gray-600 mb-1 line-clamp-1 text-xs">
+          <p className="text-gray-600 mb-1 line-clamp-2 sm:line-clamp-1 text-xs">
             {course.description}
           </p>
         </div>
@@ -41,16 +45,17 @@ const MyCourseCard: React.FC<MyCourseCardProps> = ({ course }) => {
           </div>
 
           <div>
-            <div className="flex justify-end items-center mb-1">
-              <span className="text-xs font-semibold text-[#567D4A]">
-                {course.progress}%
-              </span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-1">
-              <div
-                className="bg-[#567D4A] h-1 rounded-full transition-all duration-300"
-                style={{ width: `${course.progress}%` }}
-              ></div>
+            <div className="flex flex-col items-end mt-3 sm:mt-0 w-full">
+              <p className="text-[10px] font-medium text-[#616161]">85%</p>
+              <Progress.Root
+                className="relative h-2 w-full overflow-hidden rounded-full bg-[#E5E5E5]"
+                value={progress}
+              >
+                <Progress.Indicator
+                  className="h-full bg-[#567D4A] transition-transform duration-300 ease-in-out"
+                  style={{ transform: `translateX(-${100 - progress}%)` }}
+                />
+              </Progress.Root>
             </div>
           </div>
         </div>

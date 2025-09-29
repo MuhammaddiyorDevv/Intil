@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { myCoursesData, archiveCoursesData } from "../../data/myCourses";
+import { myCoursesData, archiveCoursesData } from "../../constants/myCourses";
 import type { TabOption } from "../../types/MyCourse";
 import PageHeader from "./PageHeader";
 import MyCoursesGrid from "./MyCoursesGrid";

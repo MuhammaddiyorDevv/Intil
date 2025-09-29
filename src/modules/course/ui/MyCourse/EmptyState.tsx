@@ -1,11 +1,6 @@
 import React from "react";
 import Cloud from "../../../../assets/images/sidebar/link-cloud-sucess.svg";
-
-interface EmptyStateProps {
-  title: string;
-  description: string;
-  icon?: React.ReactNode;
-}
+import type { EmptyStateProps } from "../../types/MyCourse";
 
 const EmptyState: React.FC<EmptyStateProps> = ({
   title,
@@ -21,8 +16,12 @@ const EmptyState: React.FC<EmptyStateProps> = ({
           </div>
         )}
       </div>
-      <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-      <p className="text-[#313131] text-center max-w-[300px]">{description}</p>
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+        {title}
+      </h3>
+      <p className="text-[#313131] text-[14px] sm:text-[16px] text-center max-w-[300px]">
+        {description}
+      </p>
     </div>
   );
 };

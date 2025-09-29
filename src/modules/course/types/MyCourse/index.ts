@@ -21,3 +21,20 @@ export interface TabNavigationProps {
   tabs: TabOption[];
   onTabChange: (tabId: string) => void;
 }
+export interface PageHeaderProps {
+  title: string;
+  tabs: TabNavigationProps["tabs"];
+  onTabChange: (tabId: string) => void;
+}
+export interface MyCoursesGridProps {
+  courses: MyCourse[];
+  isArchive?: boolean;
+}
+export interface MyCourseCardProps {
+  course: MyCourse;
+}
+export interface EmptyStateProps {
+  title: string;
+  description: string;
+  icon?: React.ReactNode;
+}
