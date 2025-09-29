@@ -37,7 +37,6 @@ const AllCoursesPage = () => {
 
   return (
     <div className="bg-white rounded-[20px] p-5">
-      {/* Desktop Layout */}
       <div className="hidden lg:flex gap-5">
         <FiltersSidebar
           priceRange={priceRange}
@@ -55,11 +54,9 @@ const AllCoursesPage = () => {
         </div>
       </div>
 
-      {/* Mobile Layout */}
       <div className="lg:hidden">
         <h1 className="font-semibold text-[24px] mb-4">Все курсы</h1>
 
-        {/* Search Bar with Filter Icon */}
         <div className="flex gap-3 mb-6">
           <div className="flex-1">
             <SearchBar
@@ -80,16 +77,13 @@ const AllCoursesPage = () => {
         <CoursesGrid courses={filteredCourses} />
       </div>
 
-      {/* Mobile Filter Modal */}
       {isFilterModalOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          {/* Backdrop */}
           <div
             className="absolute inset-0 bg-black bg-opacity-50"
             onClick={() => setIsFilterModalOpen(false)}
           />
 
-          {/* Modal Content */}
           <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-[20px] max-h-[80vh] overflow-y-auto">
             <div className="p-4">
               <div className="flex justify-between items-center mb-4">
