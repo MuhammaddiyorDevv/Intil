@@ -14,7 +14,7 @@ const Layout: React.FC = () => {
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header />
         <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 pb-16 sm:pb-0">
-          <div className="px-6 py-8">
+          <div className="px-0 sm:px-6 sm:py-8">
             <Outlet />
           </div>
         </main>

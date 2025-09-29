@@ -76,7 +76,7 @@ const YourCourse = () => {
                   />
                 </picture>
 
-                <div>
+                <div className="w-full">
                   <p className="font-semibold text-[14px]">{item.title}</p>
                   <p className=" text-[#616161] font-normal text-xs sm:text-[10px] sm:line-clamp-1">
                     {item.role}
@@ -87,7 +87,7 @@ const YourCourse = () => {
                       {item.name}
                     </p>
                   </div>
-                  <div className="flex flex-col items-end mt-3 sm:mt-0 w-[196px] sm:w-[228px]">
+                  <div className="flex flex-col items-end mt-3 sm:mt-0 w-full">
                     <p className="text-[10px] font-medium text-[#616161]">
                       85%
                     </p>

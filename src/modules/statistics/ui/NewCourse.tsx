@@ -18,7 +18,7 @@ const NewCourse = () => {
             Откройте для себя новые возможности обучения
           </p>
         </div>
-        <Link to={"/all-course"} className="hidden sm:flex py-3.5 px-5 btn">
+        <Link to={"/all-course"} className="hidden! sm:flex! py-3.5 px-5 btn">
           Смотреть еще <CirclePlus />
         </Link>
       </div>

@@ -1,4 +1,5 @@
 import { CourseProgressChart, ActivityChart } from "./DashboardCharts";
+import filter from "@/assets/images/myCourse/filter.svg";
 
 const Chart = () => {
   return (
@@ -13,13 +14,14 @@ const Chart = () => {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div className="bg-[#124600] rounded-2xl p-4 text-white w-full">
-          <h2 className="text-[16px] font-semibold mb-4">Ваш текущий курс</h2>
+          <h2 className="text-[16px] font-bold mb-4">Ваш текущий курс</h2>
           <CourseProgressChart />
         </div>
         <div className="bg-white rounded-2xl p-4 border border-[#E5E5E5] w-full">
           <div className="flex justify-between items-center mb-[10px]">
-            <h2 className="text-[16px] font-semibold text-black">Активность</h2>
-            <div className="relative">
+            <h2 className="text-[16px] font-bold text-black">Активность</h2>
+            <img src={filter} alt="filter icon" className="flex sm:hidden" />
+            <div className="relative hidden sm:flex">
               <select className="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 cursor-pointer">
                 <option>Сортировка</option>
               </select>
