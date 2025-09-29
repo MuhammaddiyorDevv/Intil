@@ -20,9 +20,10 @@ const Layout: React.FC = () => {
         </main>
       </div>
 
-      <div className="sm:hidden">
+      {/* Mobile sidebar hidden - uncomment below to show mobile sidebar */}
+      {/* <div className="sm:hidden">
         <SidebarMobile />
-      </div>
+      </div> */}
     </div>
   );
 };
